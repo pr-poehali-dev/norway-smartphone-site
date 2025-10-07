@@ -20,7 +20,7 @@ const Index = () => {
       id: 1,
       name: 'TechPro X1',
       price: 8999,
-      color: 'from-slate-800 to-slate-950',
+      image: 'https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?w=600&q=80',
       specs: '6.7" OLED, 12GB RAM, 256GB',
       badge: 'Nyhet',
     },
@@ -28,7 +28,7 @@ const Index = () => {
       id: 2,
       name: 'SmartEdge Pro',
       price: 7499,
-      color: 'from-blue-500 to-blue-700',
+      image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&q=80',
       specs: '6.5" AMOLED, 8GB RAM, 128GB',
       badge: 'Populær',
     },
@@ -36,7 +36,7 @@ const Index = () => {
       id: 3,
       name: 'UltraVision 5G',
       price: 9999,
-      color: 'from-purple-600 to-purple-900',
+      image: 'https://images.unsplash.com/photo-1603921326210-6edd2d60ca68?w=600&q=80',
       specs: '6.8" LTPO, 16GB RAM, 512GB',
       badge: 'Premium',
     },
@@ -44,7 +44,7 @@ const Index = () => {
       id: 4,
       name: 'PixelMax Ultra',
       price: 6999,
-      color: 'from-emerald-500 to-emerald-700',
+      image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80',
       specs: '6.4" OLED, 8GB RAM, 256GB',
       badge: null,
     },
@@ -52,7 +52,7 @@ const Index = () => {
       id: 5,
       name: 'NeoPhone 12',
       price: 8499,
-      color: 'from-rose-500 to-rose-700',
+      image: 'https://images.unsplash.com/photo-1674490699751-5b268de0dc10?w=600&q=80',
       specs: '6.6" Super AMOLED, 12GB RAM, 256GB',
       badge: 'Tilbud',
     },
@@ -60,7 +60,7 @@ const Index = () => {
       id: 6,
       name: 'FutureWave X',
       price: 10499,
-      color: 'from-gray-700 to-gray-900',
+      image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80',
       specs: '6.9" Quad HD+, 16GB RAM, 1TB',
       badge: 'Flagship',
     },
@@ -173,27 +173,18 @@ const Index = () => {
                 className="group hover:shadow-2xl transition-all duration-300 overflow-hidden animate-fade-in hover-scale"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                <div className="relative overflow-hidden bg-white">
                   {phone.badge && (
                     <Badge className="absolute top-4 right-4 z-10 bg-primary text-primary-foreground">
                       {phone.badge}
                     </Badge>
                   )}
-                  <div className="flex items-center justify-center h-64 p-8">
-                    <div className={`w-36 h-60 bg-gradient-to-br ${phone.color} rounded-[2.5rem] shadow-2xl group-hover:scale-110 transition-transform duration-500 relative overflow-hidden border-4 border-black/20`}>
-                      <div className="absolute top-0 inset-x-0 h-7 bg-black/90 flex items-center justify-center">
-                        <div className="w-20 h-5 bg-black rounded-full"></div>
-                      </div>
-                      <div className="absolute inset-2 top-8 bg-black/80 rounded-[1.8rem] p-1">
-                        <div className="w-full h-full bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-[1.6rem]"></div>
-                      </div>
-                      <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 h-1 bg-white/20 rounded-full"></div>
-                      <div className="absolute top-10 right-3 flex flex-col gap-1">
-                        <div className="w-1 h-8 bg-black/50 rounded-full"></div>
-                        <div className="w-1 h-8 bg-black/50 rounded-full"></div>
-                      </div>
-                      <div className="absolute top-11 left-3 w-1 h-12 bg-black/50 rounded-full"></div>
-                    </div>
+                  <div className="flex items-center justify-center h-72 p-6">
+                    <img
+                      src={phone.image}
+                      alt={phone.name}
+                      className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                 </div>
                 <CardContent className="p-6">
@@ -405,24 +396,12 @@ const Index = () => {
           </DialogHeader>
           {selectedPhone && (
             <div className="space-y-6">
-              <div className="w-full h-96 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center">
-                <div className={`w-56 h-[28rem] bg-gradient-to-br ${selectedPhone.color} rounded-[3rem] shadow-2xl relative overflow-hidden border-[6px] border-black/20`}>
-                  <div className="absolute top-0 inset-x-0 h-10 bg-black/90 flex items-center justify-center">
-                    <div className="w-28 h-6 bg-black rounded-full flex items-center justify-center gap-2 px-2">
-                      <div className="w-12 h-3 bg-gray-800 rounded-full"></div>
-                      <div className="w-3 h-3 bg-gray-700 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="absolute inset-3 top-12 bg-black/80 rounded-[2.3rem] p-2">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-[2rem]"></div>
-                  </div>
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1.5 bg-white/20 rounded-full"></div>
-                  <div className="absolute top-14 right-4 flex flex-col gap-2">
-                    <div className="w-1.5 h-12 bg-black/50 rounded-full"></div>
-                    <div className="w-1.5 h-12 bg-black/50 rounded-full"></div>
-                  </div>
-                  <div className="absolute top-16 left-4 w-1.5 h-16 bg-black/50 rounded-full"></div>
-                </div>
+              <div className="w-full h-96 bg-white rounded-lg flex items-center justify-center p-8">
+                <img
+                  src={selectedPhone.image}
+                  alt={selectedPhone.name}
+                  className="h-full w-auto object-contain"
+                />
               </div>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">

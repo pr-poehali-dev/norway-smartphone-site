@@ -131,17 +131,17 @@ const Index = () => {
         </div>
       </nav>
 
-      <section id="hero" className="relative overflow-hidden gradient-tech text-white py-24 md:py-32">
+      <section id="hero" className="relative overflow-hidden gradient-tech py-24 md:py-32">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
               Fremtidens Innovasjon
             </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
+            <p className="text-xl md:text-2xl mb-8 text-white/90">
               Oppdag den nyeste teknologien med vårt utvalg av premium smarttelefoner
             </p>
             <Button
@@ -180,9 +180,19 @@ const Index = () => {
                     </Badge>
                   )}
                   <div className="flex items-center justify-center h-64 p-8">
-                    <div className={`w-32 h-56 bg-gradient-to-br ${phone.color} rounded-3xl shadow-2xl group-hover:scale-110 transition-transform duration-500 relative`}>
-                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-5 bg-black rounded-b-2xl"></div>
-                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-12 h-12 border-2 border-white/30 rounded-full"></div>
+                    <div className={`w-36 h-60 bg-gradient-to-br ${phone.color} rounded-[2.5rem] shadow-2xl group-hover:scale-110 transition-transform duration-500 relative overflow-hidden border-4 border-black/20`}>
+                      <div className="absolute top-0 inset-x-0 h-7 bg-black/90 flex items-center justify-center">
+                        <div className="w-20 h-5 bg-black rounded-full"></div>
+                      </div>
+                      <div className="absolute inset-2 top-8 bg-black/80 rounded-[1.8rem] p-1">
+                        <div className="w-full h-full bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-[1.6rem]"></div>
+                      </div>
+                      <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 h-1 bg-white/20 rounded-full"></div>
+                      <div className="absolute top-10 right-3 flex flex-col gap-1">
+                        <div className="w-1 h-8 bg-black/50 rounded-full"></div>
+                        <div className="w-1 h-8 bg-black/50 rounded-full"></div>
+                      </div>
+                      <div className="absolute top-11 left-3 w-1 h-12 bg-black/50 rounded-full"></div>
                     </div>
                   </div>
                 </div>
@@ -395,10 +405,23 @@ const Index = () => {
           </DialogHeader>
           {selectedPhone && (
             <div className="space-y-6">
-              <div className="w-full h-80 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center">
-                <div className={`w-48 h-80 bg-gradient-to-br ${selectedPhone.color} rounded-3xl shadow-2xl relative`}>
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-b-3xl"></div>
-                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-16 h-16 border-2 border-white/30 rounded-full"></div>
+              <div className="w-full h-96 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center">
+                <div className={`w-56 h-[28rem] bg-gradient-to-br ${selectedPhone.color} rounded-[3rem] shadow-2xl relative overflow-hidden border-[6px] border-black/20`}>
+                  <div className="absolute top-0 inset-x-0 h-10 bg-black/90 flex items-center justify-center">
+                    <div className="w-28 h-6 bg-black rounded-full flex items-center justify-center gap-2 px-2">
+                      <div className="w-12 h-3 bg-gray-800 rounded-full"></div>
+                      <div className="w-3 h-3 bg-gray-700 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-3 top-12 bg-black/80 rounded-[2.3rem] p-2">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-[2rem]"></div>
+                  </div>
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1.5 bg-white/20 rounded-full"></div>
+                  <div className="absolute top-14 right-4 flex flex-col gap-2">
+                    <div className="w-1.5 h-12 bg-black/50 rounded-full"></div>
+                    <div className="w-1.5 h-12 bg-black/50 rounded-full"></div>
+                  </div>
+                  <div className="absolute top-16 left-4 w-1.5 h-16 bg-black/50 rounded-full"></div>
                 </div>
               </div>
               <div className="space-y-4">

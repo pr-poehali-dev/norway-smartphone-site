@@ -20,7 +20,7 @@ const Index = () => {
       id: 1,
       name: 'TechPro X1',
       price: 8999,
-      image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400',
+      color: 'from-slate-800 to-slate-950',
       specs: '6.7" OLED, 12GB RAM, 256GB',
       badge: 'Nyhet',
     },
@@ -28,7 +28,7 @@ const Index = () => {
       id: 2,
       name: 'SmartEdge Pro',
       price: 7499,
-      image: 'https://images.unsplash.com/photo-1592286927505-2fac2d8f21c5?w=400',
+      color: 'from-blue-500 to-blue-700',
       specs: '6.5" AMOLED, 8GB RAM, 128GB',
       badge: 'Populær',
     },
@@ -36,7 +36,7 @@ const Index = () => {
       id: 3,
       name: 'UltraVision 5G',
       price: 9999,
-      image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400',
+      color: 'from-purple-600 to-purple-900',
       specs: '6.8" LTPO, 16GB RAM, 512GB',
       badge: 'Premium',
     },
@@ -44,7 +44,7 @@ const Index = () => {
       id: 4,
       name: 'PixelMax Ultra',
       price: 6999,
-      image: 'https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=400',
+      color: 'from-emerald-500 to-emerald-700',
       specs: '6.4" OLED, 8GB RAM, 256GB',
       badge: null,
     },
@@ -52,7 +52,7 @@ const Index = () => {
       id: 5,
       name: 'NeoPhone 12',
       price: 8499,
-      image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400',
+      color: 'from-rose-500 to-rose-700',
       specs: '6.6" Super AMOLED, 12GB RAM, 256GB',
       badge: 'Tilbud',
     },
@@ -60,7 +60,7 @@ const Index = () => {
       id: 6,
       name: 'FutureWave X',
       price: 10499,
-      image: 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400',
+      color: 'from-gray-700 to-gray-900',
       specs: '6.9" Quad HD+, 16GB RAM, 1TB',
       badge: 'Flagship',
     },
@@ -173,17 +173,18 @@ const Index = () => {
                 className="group hover:shadow-2xl transition-all duration-300 overflow-hidden animate-fade-in hover-scale"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="relative overflow-hidden bg-gradient-tech-subtle">
+                <div className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
                   {phone.badge && (
                     <Badge className="absolute top-4 right-4 z-10 bg-primary text-primary-foreground">
                       {phone.badge}
                     </Badge>
                   )}
-                  <img
-                    src={phone.image}
-                    alt={phone.name}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                  <div className="flex items-center justify-center h-64 p-8">
+                    <div className={`w-32 h-56 bg-gradient-to-br ${phone.color} rounded-3xl shadow-2xl group-hover:scale-110 transition-transform duration-500 relative`}>
+                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-5 bg-black rounded-b-2xl"></div>
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-12 h-12 border-2 border-white/30 rounded-full"></div>
+                    </div>
+                  </div>
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-2">{phone.name}</h3>
@@ -394,11 +395,12 @@ const Index = () => {
           </DialogHeader>
           {selectedPhone && (
             <div className="space-y-6">
-              <img
-                src={selectedPhone.image}
-                alt={selectedPhone.name}
-                className="w-full h-80 object-cover rounded-lg"
-              />
+              <div className="w-full h-80 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg flex items-center justify-center">
+                <div className={`w-48 h-80 bg-gradient-to-br ${selectedPhone.color} rounded-3xl shadow-2xl relative`}>
+                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-b-3xl"></div>
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-16 h-16 border-2 border-white/30 rounded-full"></div>
+                </div>
+              </div>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-4xl font-bold text-primary">
